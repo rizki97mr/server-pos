@@ -1,0 +1,138 @@
+### Product
+GET http://localhost:3000/api/products
+
+###
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+    "name": "Gorengan",
+    "price": "2000",
+    "description": "testing"
+}
+
+###
+PUT  http://localhost:3000/api/products/64d40731bbc40a3b36487681
+Content-Type: application/json
+
+{
+    
+}
+
+###
+DELETE   http://localhost:3000/api/products/64d39584e59d460fd56b81a2
+
+# Category
+### 
+GET http://localhost:3000/api/category
+
+###
+POST http://localhost:3000/api/category
+Content-Type: application/json
+
+{
+    "name" : "snack"
+}
+
+###
+PUT  http://localhost:3000/api/category/
+Content-Type: application/json
+
+{
+    
+}
+
+###
+DELETE   http://localhost:3000/api/category/64d6bc6da7afed779164d9de
+
+# Tag
+###
+GET http://localhost:3000/api/tag
+
+###
+POST http://localhost:3000/api/tag
+Content-Type: application/json
+
+{
+    "name" : "snack"
+}
+
+### err
+PUT  http://localhost:3000/api/tag/64d6bd3da7afed779164d9e4
+Content-Type: application/json
+
+{
+    "name": "fruit"
+}
+
+###
+DELETE   http://localhost:3000/api/tag/64d6bd3da7afed779164d9e4
+
+
+# User
+### login
+POST http://localhost:3000/auth/login 
+Content-Type: application/json
+
+{
+    "email": "rizki@gmail.com",
+    "password": "asdasd"
+}
+
+###
+GET http://localhost:3000/auth/me
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGQ1ZmU4MDMyYzU5ZmQ0ZTdlZDY1YWEiLCJmdWxsX25hbWUiOiJyaXpraSIsImVtYWlsIjoicml6a2lAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJ1cGRhdGVkQXQiOiIyMDIzLTA4LTEzVDE2OjA0OjIwLjk0OFoiLCJjdXN0b21lcl9pZCI6MSwiX192IjowLCJpYXQiOjE2OTIzNTYxMTF9.6CRkptR465Ij8Dx4F6ZmIQ-LFcwOYDnNYE98jnSo6vY
+
+### logout
+POST http://localhost:3000/auth/logout
+Authorization: Bearer xxx
+
+### Carts
+PUT http://localhost:3000/api/carts/
+Content-Type: application/json
+	"items": [
+		{
+			"qty": "1",
+			"product": {
+			"_id": "64d40731bbc40a3b36487681"
+			}
+		}
+	]
+
+### Get Carts
+GET localhost:3000/api/carts
+
+### Delivery address
+POST localhost:3000/api/delivery-addresses
+Content-Type: application/json
+
+{
+    "nama": "ddfss",
+	"kelurahan": "bssd",
+	"kecamatan": "kaler",
+	"kabupaten": "bandungs",
+	"provinsi": "jaber",
+	"detail": "jne"
+}
+
+### Get delivery adderess
+GET localhost:3000/api/delivery-addresses
+
+### edit delivery addrsss
+PUT localhost:3000/api/delivery-addresses/64df5819492af954f75a5373
+
+### delete delivery addrsss
+DELETE localhost:3000/api/delivery-addresses/64df5819492af954f75a5373
+
+### Post Order
+POST localhost:3000/api/orders
+{
+	"delivery_fee": "1000",
+	"delivery_address": "64df5a20492af954f75a537c"
+}
+
+### Get order
+GET localhost:3000/api/orders
+
+### Get Invoice
+GET localhost:3000/api/invoice/64df658ec3de7360c0ca370b
