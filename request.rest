@@ -1,8 +1,11 @@
 ### Product
 GET http://localhost:3000/api/products
 
-###
-POST http://localhost:3000/api/products
+### Get product id
+GET http://localhost:3000/api/products/64d415dddf59ce4b73143216
+
+### Post product
+POST http://localhost:3000/api/products/64d40731bbc40a3b36487681
 Content-Type: application/json
 
 {
@@ -54,7 +57,7 @@ POST http://localhost:3000/api/tag
 Content-Type: application/json
 
 {
-    "name" : "snack"
+    "name" : "spicy"
 }
 
 ### err

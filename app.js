@@ -5,14 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 const {decodeToken} = require('./middlewares')
-const productRoute = require('./app/product/router');
-const categoryRoute = require('./app/category/router');
-const tagRoute = require('./app/tag/router');
-const authRoute = require('./app/auth/router');
-const deliveryAddressRoute = require('./app/DeliveryAddress/router');
-const cartRoute = require('./app/cart/router');
-const orderRoute = require('./app/order/router');
-const invoiceRoute = require('./app/invoice/router');
+const productRoute = require('./app/router/product/router');
+const categoryRoute = require('./app/router/category/router');
+const tagRoute = require('./app/router/tag/router');
+const authRoute = require('./app/router/auth/router');
+const deliveryAddressRoute = require('./app/router/deliveryAddress/router');
+const cartRoute = require('./app/router/cart/router');
+const orderRoute = require('./app/router/order/router');
+const invoiceRoute = require('./app/router/invoice/router');
 
 var app = express();
 
