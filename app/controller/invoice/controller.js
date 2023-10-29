@@ -1,7 +1,7 @@
 const { subject } = require('@casl/ability');
 const { policyFor } = require('../../../utils');
 const Invoice = require('../../model/invoice/model');
-const Order = require('../../model/order/model')
+const OrderItems = require('../../model/order-item/model')
 
 
 const show = async(req, res, next) => {
@@ -10,7 +10,10 @@ const show = async(req, res, next) => {
         let invoice = await Invoice
         .findOne({order: order_id})
         .populate('order')
-        .populate('user');
+        .populate('user')
+
+        let orderItems = await OrderItems.find({order: order_id})
+        invoice.order.order_items = orderItems
 
         console.log(invoice)
         let policy = policyFor(req.user);

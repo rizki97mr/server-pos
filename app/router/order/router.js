@@ -14,4 +14,7 @@ router.get(
     orderController.index
 );
 
+router.put('/orders/:id', police_check('update', 'Order'), orderController.update
+    );
+
 module.exports = router;

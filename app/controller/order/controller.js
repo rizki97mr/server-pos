@@ -18,7 +18,7 @@ const store = async(req, res, next) => {
         let address = await DeliveryAddress.findById(delivery_address);
         let order = new Order({
             _id: new Types.ObjectId(),
-            status: 'waiting_payment',
+            status: 'waiting payment',
             delivery_fee: delivery_fee,
             delivery_address: {
                 provinsi: address.provinsi,
@@ -84,7 +84,26 @@ const index = async (req, res, next) => {
     }
 }
 
+const update = async(req, res, next) => {
+    try {
+        let payload = req.body;
+        let order = await Order.findByIdAndUpdate(req.params.id, payload, {new: true, runValidators: true});
+        return res.json(order);
+    } catch(err) {
+        if(err && err.name === 'ValidationError') {
+            return res.json({
+                error: 1,
+                message: err.message,
+                fields: err.errors
+            });
+        }
+
+        next(err);
+    }
+}
+
 module.exports = {
     store,
-    index
+    index,
+    update
 }
